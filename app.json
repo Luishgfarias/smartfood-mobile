@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "smart-food-mobile",
+    "slug": "smart-food-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
