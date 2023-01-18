@@ -6,6 +6,8 @@ import OnBoard from './src/screens/OnBoard';
 import { useFonts, Ubuntu_400Regular, JosefinSans_400Regular, Ubuntu_700Bold, JosefinSans_700Bold } from '@expo-google-fonts/dev';
 import { THEME } from './src/styles/theme';
 import { Routes } from './src/routes';
+import AuthProvider from './src/contexts/auth';
+import 'react-native-gesture-handler';
 
 export default function App() {
 
@@ -13,8 +15,10 @@ export default function App() {
 
 
   return (
-    <NativeBaseProvider theme={THEME}>
-      {fontsLoaded ? <Routes /> : <SplashPage />}
+    <NativeBaseProvider theme={THEME} >
+      <AuthProvider>
+        {fontsLoaded ? <Routes /> : <SplashPage />}
+      </AuthProvider>
     </NativeBaseProvider>
   );
 }

@@ -2,9 +2,18 @@
   "expo": {
     "name": "smart-food-mobile",
     "slug": "smart-food-mobile",
+    "scheme": "smart-food-mobile",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
+    ],
+    "plugins": [
+      [
+        "expo-facebook",
+        {
+          "userTrackingPermission": false
+        }
+      ]
     ]
   }
 }

@@ -1,11 +1,12 @@
 import { useNavigation } from '@react-navigation/native'
 import { Button, StatusBar, Text, VStack } from 'native-base';
-import React, { useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import City from '../../assets/City.svg'
+import { AuthContext } from '../../contexts/auth';
 
 function renderItem({ item }){
-
+   
     return (
         <VStack alignItems="center" justifyContent="flex-end" flex={.85}>
             {
@@ -28,7 +29,6 @@ function renderItem({ item }){
 
 function OnBoard() {
     const Navigation = useNavigation()
-
 
     function handleNavigate() {
         Navigation.navigate('Home')
