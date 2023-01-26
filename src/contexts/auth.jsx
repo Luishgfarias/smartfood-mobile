@@ -27,7 +27,7 @@ function AuthProvider({children}) {
              
             if(data !== null) {
                 setUserProps(data)
-                setLogged()
+                //setLogged()
             }
             setLoading(false)
         }

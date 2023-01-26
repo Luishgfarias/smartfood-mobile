@@ -5,18 +5,16 @@ import { Dimensions } from 'react-native';
 import { Api } from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Register() {
+export default function LoginEmail() {
   const Navigation = useNavigation()
 
     const [form, setForm] = useState({
-        name: '',
         email: '',
-        password: '',
-        confirmPassword: ''
+        password: ''
     })
     async function handleRegister() {
-       Api.post('auth/register/user', form)
-       .then( () => Navigation.navigate('Login') )
+       Api.post('auth/login/user', form)
+       .then( () => Navigation.navigate('OnBoard') )
        .catch(error => console.log(error))
        
     }
@@ -24,16 +22,8 @@ export default function Register() {
         <VStack h={Dimensions.get('screen').height} w={Dimensions.get('screen').width} justifyContent='center' alignItems='center'>
 
             <VStack bg='none' w='100%' h='100%' justifyContent='center' alignItems='center'>
-                <Text fontFamily='body' fontSize={22} mb={6}>Crie Sua conta...</Text>
+                <Text fontFamily='body' fontSize={22} mb={6}>Digite sua conta...</Text>
                 <VStack bg='#fff' w="80%" h='40%' justifyContent='center' alignItems='center' borderRadius={16} shadow={3}>
-                    <Input placeholder='Nome' w='75%' type='text' mb={3} borderRadius={16} _focus={{
-                        backgroundColor: '#00000015',
-                        borderColor: 'gray.400'
-                    }}
-                    onChangeText={(event) => setForm({
-                        ...form,
-                        name: event
-                    })} />
                     <Input placeholder='Email' w='75%' type='text' mb={3} borderRadius={16} _focus={{
                         backgroundColor: '#00000015',
                         borderColor: 'gray.400'
@@ -49,14 +39,6 @@ export default function Register() {
                     onChangeText={(event) => setForm({
                         ...form,
                         password: event
-                    })} />
-                    <Input placeholder='Confirme sua senha' w='75%' type='password' mb={6} borderRadius={16} _focus={{
-                        backgroundColor: '#00000015',
-                        borderColor: 'gray.400'
-                    }}
-                    onChangeText={(event) => setForm({
-                        ...form,
-                        confirmPassword: event
                     })} />
                     <Button w='50%' bg={'#F88A10'} onPress={handleRegister}>
                         Criar

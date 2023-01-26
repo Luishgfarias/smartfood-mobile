@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Login from '../screens/Login'
 import Register from '../screens/Register'
 import OnBoard from '../screens/OnBoard'
+import LoginEmail from '../screens/LoginEmail'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 export default function StackRoutes() {
@@ -15,6 +16,13 @@ export default function StackRoutes() {
                 <Screen
                     name='Login'
                     component={Login}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Screen
+                    name='LoginEmail'
+                    component={LoginEmail}
                     options={{
                         headerShown: false
                     }}

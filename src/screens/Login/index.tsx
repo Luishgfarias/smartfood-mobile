@@ -37,7 +37,7 @@ function Login() {
       if (type === 'success') {
         setItem(params)
         Navigation.navigate('OnBoard')
-      } 
+      }
     } catch (error) {
       console.log(error);
       alert('Algo deu errado, Tente novamente mais tarde')
@@ -85,18 +85,21 @@ function Login() {
               <Text ml={8} fontSize={20}>Entrar com Facebook</Text>
             </HStack>
           </Button>
-          <Link justifyContent='center'>
+          <Button justifyContent='center' mb={2} p={0} style={{
+            backgroundColor: '#00000000'
+          }}
+            onPress={() => Navigation.navigate('LoginEmail')}>
             <Text color='gray.100' fontSize={16}>Entrar com email</Text>
-          </Link>
+          </Button>
         </VStack>
         <Button justifyContent='center' mb={2} p={0} style={{
-                    backgroundColor: '#00000000'
-                }}
-                    onPress={() => Navigation.navigate('Register')}>
-                    <Text fontSize={16} color='gray.100'>
-                        Criar conta
-                    </Text>
-                </Button>
+          backgroundColor: '#00000000'
+        }}
+          onPress={() => Navigation.navigate('Register')}>
+          <Text fontSize={16} color='gray.100'>
+            Criar conta
+          </Text>
+        </Button>
       </VStack>
       <StatusBar
         barStyle='light-content'
