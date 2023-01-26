@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Input, StatusBar, VStack, Text, Button } from 'native-base';
 import City from '../../assets/City.svg'
 import { Dimensions } from 'react-native';
 import { Api } from '../../services/api';
 import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../../contexts/auth';
 
 export default function LoginEmail() {
   const Navigation = useNavigation()
+  const { setItem } = useContext(AuthContext)
 
     const [form, setForm] = useState({
         email: '',
@@ -14,7 +16,9 @@ export default function LoginEmail() {
     })
     async function handleRegister() {
        Api.post('auth/login/user', form)
-       .then( () => Navigation.navigate('OnBoard') )
+       .then( (res) =>{
+        setItem(res.data)
+        Navigation.navigate('OnBoard') })
        .catch(error => console.log(error))
        
     }
