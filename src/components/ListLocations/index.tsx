@@ -4,7 +4,11 @@ import { Dimensions } from 'react-native';
 type ItemProps = {
     item: {
         img: JSX.Element
-        text: string,
+        title: string,
+        type: string,
+        open: string,
+        timeDelivery: string,
+        assessment: number
     },
     index: number
 }
@@ -17,48 +21,88 @@ const ITEM_WIDTH = SLIDER_WIDTH * 0.9
 
 const slides = [
     {
-        text: 'Restaurante',
-        img: <Image source={require('../../assets/Restaurante1.png')} alt='estabelecimento' />
+        title: 'Restaurante',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 87,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front&5'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
     },
     {
-        text: 'Mercado',
-        img: <Image source={require('../../assets/Restaurante2.png')} alt='estabelecimento' />
+        title: 'Mercado',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 53,
+        img: <Image src={'https://source.unsplash.com/random/200x200?store$front'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
 
     },
     {
-        text: 'Restaurante',
-        img: <Image source={require('../../assets/Restaurante1.png')} alt='estabelecimento' />
+        title: 'Restaurante',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 80,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front&'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
     },
     {
-        text: 'Mercado',
-        img: <Image source={require('../../assets/Restaurante2.png')} alt='estabelecimento' />
+        title: 'Mercado',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 93,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
 
     },
     {
-        text: 'Restaurante',
-        img: <Image source={require('../../assets/Restaurante1.png')} alt='estabelecimento' />
+        title: 'Restaurante',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 83,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front&1'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
     },
     {
-        text: 'Mercado',
-        img: <Image source={require('../../assets/Restaurante2.png')} alt='estabelecimento' />
+        title: 'Mercado',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 83,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
 
     },
     {
-        text: 'Restaurante',
-        img: <Image source={require('../../assets/Restaurante1.png')} alt='estabelecimento' />
+        title: 'Restaurante',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 83,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front&1'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
     },
     {
-        text: 'Mercado',
-        img: <Image source={require('../../assets/Restaurante2.png')} alt='estabelecimento' />
+        title: 'Mercado',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 83,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
 
     },
     {
-        text: 'Restaurante',
-        img: <Image source={require('../../assets/Restaurante1.png')} alt='estabelecimento' />
+        title: 'Restaurante',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 83,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front&1'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
     },
     {
-        text: 'Mercado',
-        img: <Image source={require('../../assets/Restaurante2.png')} alt='estabelecimento' />
+        title: 'Mercado',
+        type: 'Lanchonete',
+        open: '17:00',
+        timeDelivery: '30 - 45 min',
+        assessment: 83,
+        img: <Image src={'https://source.unsplash.com/random/200x200/?store&front'} alt='estabelecimento' w={ITEM_WIDTH * 0.25} h={ITEM_WIDTH * 0.25} />
 
     },
 ];
@@ -66,19 +110,38 @@ const slides = [
 function carouselItens({ item, index }: ItemProps) {
     return (
         <HStack key={index} w={ITEM_WIDTH} h={ITEM_HEIGHT}
-            padding={4} borderBottomStyle={'solid'} borderBottomColor='black'
-            borderBottomWidth={1} alignItems='center'>
+            padding={2} borderBottomStyle={'solid'} borderBottomColor='black'
+            borderBottomWidth={1}>
+            <HStack alignItems='center'>
 
-            {item.img}
+                {item.img}
 
-            <VStack justifyContent='space-between'>
-                <Text textAlign='center'>
-                    {item.text}
-                </Text>
-                <Text textAlign='center'>
-                    {item.text}
-                </Text>
-            </VStack>
+                <HStack justifyContent='space-around' ml='5%' h='80%' w='70%'>
+                    <VStack justifyContent='space-between'>
+                        <VStack>
+                            <Text fontSize={18}>
+                                {item.title}
+                            </Text>
+                            <Text fontSize={12}>
+                                {item.type}
+                            </Text>
+                        </VStack>
+                        <HStack w='35%'>
+                            <Text fontSize={12}>
+                                Abre as {item.open}
+                            </Text>
+                            <Text fontSize={12} w='150%'>
+                                Tempo estimado {item.timeDelivery}
+                            </Text>
+                        </HStack>
+                    </VStack>
+                    <HStack>
+                        <Text fontSize={18}>{item.assessment}%</Text>
+                        <Text fontSize={18}>:)</Text>
+                    </HStack>
+                </HStack>
+            </HStack>
+
         </HStack>
     )
 }

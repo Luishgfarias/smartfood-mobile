@@ -4,6 +4,7 @@ export declare global {
       Login: undefined;
       OnBoard: undefined;
       Home: undefined;
+      Register: undefined;
     }
   }
 }

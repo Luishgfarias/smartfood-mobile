@@ -1,10 +1,27 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { StackRoutes } from './app.routes'
+import { useContext } from 'react'
+import { AuthContext } from '../contexts/auth'
+import DrawRoutes from './app.routes'
+import StackRoutes from './auth.routes'
+import SplashPage from '../screens/Splash'
 
 export function Routes() {
+    const { section, loading } = useContext(AuthContext)
+
+    if(loading){
+        return(
+            <SplashPage />
+        )
+    }
+
     return (
         <NavigationContainer>
-            <StackRoutes />
+            {
+                section ? 
+                <DrawRoutes />
+                :
+                <StackRoutes />
+            }
         </NavigationContainer>
     )
 }

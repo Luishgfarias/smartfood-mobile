@@ -1,9 +1,8 @@
 import React from 'react';
-import { VStack, Text, FlatList } from 'native-base';
+import { VStack, Text, FlatList, Image } from 'native-base';
 import { Dimensions } from 'react-native';
 import Restaurante from '../../assets/Restaurante.svg'
 import Mercado from '../../assets/Mercado.svg'
-import AguaEGas from '../../assets/AguaEGas.svg'
 import Farmacia from '../../assets/Farmacia.svg'
 import Bebidas from '../../assets/Bebidas.svg'
 import Açougue from '../../assets/Açougue.svg'
@@ -31,8 +30,8 @@ const slides = [
 
     },
     {
-        text: 'Água',
-        img: <AguaEGas />
+        text: 'Água e Gás',
+        img: <Image source={require('../../assets/waterandgas.png')} alt='none' />
 
     },
     {

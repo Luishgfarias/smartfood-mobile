@@ -29,9 +29,10 @@ function renderItem({ item }){
 
 function OnBoard() {
     const Navigation = useNavigation()
+    const { setLogged } = useContext(AuthContext)
 
     function handleNavigate() {
-        Navigation.navigate('Home')
+        setLogged()
       }
     const slides = [
         {

@@ -7,13 +7,12 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "plugins": [
-      [
-        "expo-facebook",
-        {
-          "userTrackingPermission": false
-        }
-      ]
-    ]
+    "extra": {
+      "eas": {
+        "projectId": "656643c6-f345-4614-8881-7a6334d9032e"
+      }
+    },
+    "android": {},
+    "ios": {}
   }
 }

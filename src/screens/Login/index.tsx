@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native'
 import { AuthContext } from '../../contexts/auth';
 
 import * as AuthSession from 'expo-auth-session';
-import * as Facebook from 'expo-facebook';
 
 type AuthResponse = {
   params: {
@@ -90,9 +89,14 @@ function Login() {
             <Text color='gray.100' fontSize={16}>Entrar com email</Text>
           </Link>
         </VStack>
-        <Link justifyContent='center'>
-          <Text color='gray.100' fontSize={16}>Criar conta</Text>
-        </Link>
+        <Button justifyContent='center' mb={2} p={0} style={{
+                    backgroundColor: '#00000000'
+                }}
+                    onPress={() => Navigation.navigate('Register')}>
+                    <Text fontSize={16} color='gray.100'>
+                        Criar conta
+                    </Text>
+                </Button>
       </VStack>
       <StatusBar
         barStyle='light-content'
